@@ -32,7 +32,7 @@ class BattleShip {
         if (this.shipLocation.contains(hitLocation)) {
             //this.shipLocation.remove(hitLocation);
             this.shipLocation.remove(this.shipLocation.indexOf(hitLocation));
-            if (this.shipLocation.size() == 0) {
+            if (this.shipLocation.isEmpty()) {
                 return "kill";
             }
             return "hit";
