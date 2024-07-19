@@ -1,41 +1,43 @@
 package ch5;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class BattleShip {
     // state
-    private int[] shipLocation;
-    private int numOfHit;
+    private ArrayList<Integer> shipLocation;
     // init
-    private static volatile BattleShip uniqeInstance = null;
-    private BattleShip() {}
+    private static volatile BattleShip uniqueInstance = null;
+    private BattleShip() {
+        this.shipLocation = new ArrayList<Integer>();
+    }
     public static BattleShip getInstance() {
-        if (null == uniqeInstance) {
+        if (null == uniqueInstance) {
             synchronized(BattleShip.class) {
-                if (null == uniqeInstance) {
-                    uniqeInstance = new BattleShip();
+                if (null == uniqueInstance) {
+                    uniqueInstance = new BattleShip();
                 }
             }
         }
-        return uniqeInstance;
+        return uniqueInstance;
     }
     // todo
     public void setShipLocation(int[] shipLocation) {
-        this.shipLocation = shipLocation;
+        for(int s : shipLocation) {
+            this.shipLocation.add(s);
+        }
     }
     public String checkHitResult(int hitLocation) {
-        String result = "miss";
-        for(int i = 0 ; i < shipLocation.length ; ++i) {
-            if (hitLocation == shipLocation[i]) {
-                shipLocation[i] = -1;
-                numOfHit++;
-                result = "hit";
+
+        if (this.shipLocation.contains(hitLocation)) {
+            //this.shipLocation.remove(hitLocation);
+            this.shipLocation.remove(this.shipLocation.indexOf(hitLocation));
+            if (this.shipLocation.size() == 0) {
+                return "kill";
             }
-            if (numOfHit == shipLocation.length) {
-                result = "kill";
-            }
+            return "hit";
         }
-        return result;
+        return "miss";
     }
     public int prove() {
         pt("Please hit location: ");
