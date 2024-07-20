@@ -3,6 +3,9 @@ package ch5;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 class BattleShip {
     // state
     private ArrayList<Integer> shipLocation;
@@ -65,6 +68,32 @@ public class BattleShipGameDemo {
         }
 
         // System.out.println("kill ship !!! winner");
-        System.out.println("Total guess: " + guessTotal);
+
+        /*
+         *         // Create a JFrame
+        JFrame frame = new JFrame("Swing Example");
+
+        // Set the size of the frame
+        frame.setSize(300, 200);
+
+        // Set default close operation
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Create a label and add it to the frame
+        JLabel label = new JLabel("Hello, Swing!", JLabel.CENTER);
+        frame.add(label);
+
+        // Make the frame visible
+        frame.setVisible(true);
+         */
+        JFrame frame = new JFrame("Battle ship");
+        frame.setSize(300, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JLabel label = new JLabel("Total guess: " + guessTotal);
+        frame.add(label);
+        frame.setVisible(true);
+        // System.out.println("Total guess: " + guessTotal);
     }
+
+    
 }
