@@ -12,8 +12,17 @@ public class PolymorphicTest {
         animals.add(new Lion());
         animals.add(new Hippo());
 
+        getType(animals);
+    }
+
+    public static void makeNoise(Animal a) {
+        a.makeNoise();
+    }
+
+    public static void getType(ArrayList<Animal> animals) {
         for (Animal animal : animals) {
             System.out.println(animal.getClass().getName());
+            makeNoise(animal);
         }
     }
 }
