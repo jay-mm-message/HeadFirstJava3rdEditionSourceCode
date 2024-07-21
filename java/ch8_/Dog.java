@@ -1,6 +1,6 @@
 package ch8_;
 
-public class Dog implements Animal {
+public class Dog implements Animal, Pet {
 
     @Override
     public void makeNoise() {
@@ -14,4 +14,13 @@ public class Dog implements Animal {
         }
         return false;
     }
+
+    @Override
+    public String byFriendlyPet() {
+        String result = "It's good friendly pet.";
+        result += "It's " + getClass().getName();
+        return result;
+    }
+
+
 }

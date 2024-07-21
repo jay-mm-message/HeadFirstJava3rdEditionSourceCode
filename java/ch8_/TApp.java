@@ -21,6 +21,23 @@ public class TApp {
             objects.add(obj);
         }
         makeNoiseForAllObject(objects);
+
+        String result = "";
+        for (Animal animal : animals) {
+            if (animal instanceof Dog) {
+                result = ((Dog)animal).byFriendlyPet();
+            }
+            if (animal instanceof Cat) {
+                result = ((Cat)animal).byFriendlyPet();
+            }
+            if (animal instanceof Wolf) {
+                result = ((Wolf)animal).byFriendlyPet();
+            }
+            if (animal instanceof Lion) {
+                result = ((Lion)animal).byFriendlyPet();
+            }
+            System.out.println(result);
+        }
     }
 
     public static void makeNoiseForAllObject(ArrayList<Object> objects) {
