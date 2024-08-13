@@ -1,24 +1,21 @@
 package ch5__;
 
-import java.util.Scanner;
-
 public class SimpleStartupTestDrive {
     public static void main(String[] args) {
         
         SimpleStartup dot = new SimpleStartup();
+        GameHelper gameHelper = new GameHelper();
         
         int numOfGuesses = 0;
         int num = (int) Math.random() % 5;
-        System.out.println(num);
         int[] locations = {num, ++num, ++num};
 
         dot.setLocations(locations);
         boolean again = true;
         
         while(again) {
-            System.out.print("Please guess: ");
-            Scanner scanner = new Scanner(System.in);
-            int guess = scanner.nextInt();
+
+            int guess = gameHelper.getUserInput("Please guess: ");
             ++numOfGuesses;
             String result = dot.checkSelf(guess);
             switch (result) {
