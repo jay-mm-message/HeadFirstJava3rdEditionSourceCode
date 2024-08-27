@@ -10,15 +10,23 @@ public class StartupBust {
 
   private void setUpGame() {
     // first make some Startups and give them locations
-    Startup one = new Startup();
-    one.setName("poniez");
-    Startup two = new Startup();
-    two.setName("hacqi");
-    Startup three = new Startup();
-    three.setName("cabista");
-    startups.add(one);
-    startups.add(two);
-    startups.add(three);
+    Startup [] ship = new Startup[3];
+    String [] shipName = {"poniez", "hacqi", "cabista"};
+    int idx = 0;
+    for ( Startup sp : ship ) {
+      sp = new Startup();
+      sp.setName(shipName[idx++]);
+      startups.add(sp);
+    }
+    // Startup one = new Startup();
+    // one.setName("poniez");
+    // Startup two = new Startup();
+    // two.setName("hacqi");
+    // Startup three = new Startup();
+    // three.setName("cabista");
+    // startups.add(one);
+    // startups.add(two);
+    // startups.add(three);
 
     System.out.println("Your goal is to sink three Startups.");
     System.out.println("poniez, hacqi, cabista");
